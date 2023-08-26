@@ -1,0 +1,6 @@
+aiogram
+aioredis
+environs
+requests
+beautifulsoup4
+redis
