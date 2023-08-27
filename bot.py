@@ -29,6 +29,8 @@ async def main():
     # start
     try:
         await dp.start_polling()
+        loop = asyncio.get_event_loop()
+        loop.create_task(scheduled(1500))
     finally:
         await dp.storage.close()
         await dp.storage.wait_closed()
@@ -38,7 +40,5 @@ async def main():
 if __name__ == '__main__':
     try:
         asyncio.run(main())
-        loop = asyncio.get_event_loop()
-        loop.create_task(scheduled(1500))
     except (KeyboardInterrupt, SystemExit):
         logger.error("Bot stopped!")
